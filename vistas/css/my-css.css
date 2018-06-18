@@ -1,0 +1,52 @@
+body{
+	background-color: #333;
+	color:#fff;
+}
+.navbar{
+	opacity: .7;
+	border-bottom: #00AFEF 3px solid;
+
+}
+
+.background-paisaje{
+	background-image: url("../img/fondo.jpg");
+	background-size: cover;
+	min-height: 100vh;
+	background-attachment: fixed;
+}
+#home-section{
+	background-image: url("../img/fondo.jpg");
+	background-size: cover;
+	min-height: 100vh;
+	background-attachment: fixed;
+}
+.dark-overlay{
+	background-color: rgba(0,0,0,.3);
+	min-height: 100vh;
+}#smartphone{
+	width: 30vh;
+}
+.formulario-padding{
+	padding-top: 30vh;
+}
+.formulario-padding-dos{
+	padding-top: 15vh;
+}
+.home-inner{
+	padding-top: 76vh;
+}
+#navbar-brand-icon{
+	width: 13%;
+}
+.flyman-section-blue{
+	background-color: #00AFEF;
+}
+.flyman-section-gray{
+	background-color: #4B4B4D;
+}
+.image-section-sky{
+	background-image: url("../img/fondo-dos.jpg");
+	background-size: cover;
+	min-height: 100vh;
+	background-attachment: fixed;
+}
