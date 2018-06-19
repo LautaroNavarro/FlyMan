@@ -11,6 +11,34 @@ class DaoVuelo
 	private static function setConexion(){
 		self::$conexion = Conexion::getConexion();
 	}
+
+	public static function buscarPorParameters($parameters){
+		self::setConexion();
+		$sql = "SELECT * FROM vuelos 
+		WHERE (precio > :p_minimo or :p_minimo is null)
+		AND   (precio <  :p_maximo  or :p_maximo  is null)
+		AND   (id_origen  = :origen  or :origen  is null)
+		AND (id_destino = :destino or :destino is null)
+		AND (fecha_salida < :fechaSalida or :fechaSalida is null)";
+		$lista = [];
+		$sel = self::$conexion->prepare($sql);
+		$sel->execute($parameters);
+		$sel = $sel->fetchAll();
+		foreach ($sel as $tp) {
+			$vuelo = new Vuelo();
+			$vuelo->setId($tp['id']);
+			$vuelo->setFechaSalida($tp['fecha_salida']);
+			$vuelo->setFechaLlegada($tp['fecha_llegada']);
+			$vuelo->setPrecio($tp['precio']);
+			$vuelo->setOrigen(DaoLugar::selectOne($tp['id_origen']));
+			$vuelo->setDestino(DaoLugar::selectOne($tp['id_destino']));
+			$vuelo->setPasajes(DaoPasaje::selectAllWhereIdVuelo($tp['id']));
+			$vuelo->setCodigoDescuento(DaoCodigoDescuento::selectOneByVueloId($tp['id']));
+			array_push($lista,$vuelo);
+		}
+		return $lista;
+
+	}
 	public static function selectVuelosWhereIdPersona($id_persona){
 		self::setConexion();
 		$lista = [];

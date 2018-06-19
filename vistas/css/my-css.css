@@ -5,7 +5,6 @@ body{
 .navbar{
 	opacity: .7;
 	border-bottom: #00AFEF 3px solid;
-
 }
 
 .background-paisaje{
@@ -13,6 +12,9 @@ body{
 	background-size: cover;
 	min-height: 100vh;
 	background-attachment: fixed;
+}
+.home-inner{
+	padding-top: 76vh;
 }
 #home-section{
 	background-image: url("../img/fondo.jpg");
@@ -32,9 +34,7 @@ body{
 .formulario-padding-dos{
 	padding-top: 15vh;
 }
-.home-inner{
-	padding-top: 76vh;
-}
+
 #navbar-brand-icon{
 	width: 13%;
 }
